@@ -1,0 +1,11 @@
+{:paths ["src" "resources"]
+ :deps {org.clojure/clojure {:mvn/version "1.10.3"}
+        ;; https://mvnrepository.com/artifact/org.apache.commons/commons-text
+        org.apache.commons/commons-text {:mvn/version "1.9"}}
+ :aliases
+ {:jar {:replace-deps {com.github.seancorfield/depstar {:mvn/version "2.0.216"}}
+        :exec-fn hf.depstar/jar
+        :exec-args {:jar "tryit.jar" :sync-pom true}}
+  :deploy {:replace-deps {slipset/deps-deploy {:mvn/version "0.1.5"}}
+           :exec-fn deps-deploy.deps-deploy/deploy
+           :exec-args {:installer :remote :artifact "tryit.jar"}}}}
