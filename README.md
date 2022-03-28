@@ -8,17 +8,17 @@ Create cli snippets for quickly trying clojure libraries.
 
 ### Create a command that invokes a function
 ```sh
-clojure -Sdeps {:deps\ {com.phronemophobic/tryit\ {:mvn/version\ \"1.0\"}}} -X com.phronemophobic.tryit/exec
+clj -Sdeps {:deps\ {com.phronemophobic/tryit\ {:mvn/version\ \"1.0\"}}} -X com.phronemophobic.tryit/exec
 ```
 
 ### Create a command that invokes a namespace's main
 ```sh
-clojure -Sdeps {:deps\ {com.phronemophobic/tryit\ {:mvn/version\ \"1.0\"}}} -M -m com.phronemophobic.tryit
+clj -Sdeps {:deps\ {com.phronemophobic/tryit\ {:mvn/version\ \"1.0\"}}} -M -m com.phronemophobic.tryit
 ```
 
 ### Create a command that evals expressions in a namespace
 ```sh
-clojure -Sdeps {:deps\ {com.phronemophobic/tryit\ {:mvn/version\ \"1.0\"}}} -M -e \(require\ \(quote\ com.phronemophobic.tryit\)\)\(ns\ com.phronemophobic.tryit\)\(eval\)
+clj -Sdeps {:deps\ {com.phronemophobic/tryit\ {:mvn/version\ \"1.0\"}}} -M -e \(require\ \(quote\ com.phronemophobic.tryit\)\)\(ns\ com.phronemophobic.tryit\)\(eval\)
 ```
 
 ## Alias Usage
@@ -39,11 +39,11 @@ clojure -Sdeps {:deps\ {com.phronemophobic/tryit\ {:mvn/version\ \"1.0\"}}} -M -
 ```
 
 ```sh
-$ clojure -X:tryit
+$ clj -X:tryit
 Tryit: Create cli snippets for quickly trying clojure libraries.
 
 Usage:
-  clojure -X:tryit :type type
+  clj -X:tryit :type type
 
 :type should be one of eval, exec or main.
    :type eval - Create a command that evals expressions in a namespace
@@ -55,11 +55,11 @@ Usage:
 Example:
 
 ```sh
-$ clojure -X:tryit :type exec
+$ clj -X:tryit :type exec
 deps: {com.phronemophobic/tryit {:mvn/version "1.0"}}
-f: com.phronemophobic/cli
+f: com.phronemophobic.tryit/cli
 
-clojure -Sdeps {:deps\ {com.phronemophobic/tryit\ {:mvn/version\ \"1.0\"}}} -X com.phronemophobic/cli
+clj -Sdeps {:deps\ {com.phronemophobic/tryit\ {:mvn/version\ \"1.0\"}}} -X com.phronemophobic.tryit/cli
 
 ```
 

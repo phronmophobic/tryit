@@ -18,9 +18,9 @@
 (defn escape-clojure-command
   [deps args]
   (escape-command
-   (into ["clojure" "-Sdeps" (binding [*print-namespace-maps* false]
-                               (->edn
-                                {:deps deps}))]
+   (into ["clj" "-Sdeps" (binding [*print-namespace-maps* false]
+                           (->edn
+                            {:deps deps}))]
          args)))
 
 (defn escape-clojure-main
