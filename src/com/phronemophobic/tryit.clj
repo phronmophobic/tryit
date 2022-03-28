@@ -86,7 +86,9 @@
 
         _ (pf "namespace: ")
         ns (read)]
-    (println (escape-clojure-main deps ns))))
+    (println)
+    (println (escape-clojure-main deps ns))
+    (println)))
 
 
 (defn exec [& args]
@@ -95,7 +97,9 @@
 
         _ (pf "f: ")
         f (read)]
-    (println (escape-clojure-exec deps f))))
+    (println)
+    (println (escape-clojure-exec deps f))
+    (println)))
 
 
 (defn eval [& args]
@@ -107,7 +111,9 @@
 
         _ (pf "form: ")
         form (read)]
-    (println (escape-clojure-eval deps ns [form]))))
+    (println)
+    (println (escape-clojure-eval deps ns [form]))
+    (println)))
 
 
 (defn print-help []

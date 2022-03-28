@@ -46,10 +46,12 @@ $ clojure -X:tryit :type type
 Example:
 
 ```sh
-$ clojure -X:tryit :type :exec
+$ clojure -X:tryit :type exec
 deps: {com.phronemophobic/tryit {:mvn/version "1.0"}}
 f: com.phronemophobic/cli
-clojure -Sdeps {:deps\ \#:com.phronemophobic{tryit\ \#:mvn{:version\ \"1.0\"}}} -X com.phronemophobic/cli
+
+clojure -Sdeps {:deps\ {com.phronemophobic/tryit\ {:mvn/version\ \"1.0\"}}} -X com.phronemophobic/cli
+
 ```
 
 ## Programmatic Usage
