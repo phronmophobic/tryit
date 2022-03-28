@@ -36,12 +36,19 @@ clojure -Sdeps {:deps\ {com.phronemophobic/tryit\ {:mvn/version\ \"1.0\"}}} -M -
 }
 ```
 
-$ clojure -X:tryit :type type
+```sh
+$ clojure -X:tryit
+Tryit: Create cli snippets for quickly trying clojure libraries.
+
+Usage:
+  clojure -X:tryit :type type
 
 :type should be one of eval, exec or main.
    :type eval - Create a command that evals expressions in a namespace
    :type exec - Create a command that invokes a function
    :type main - Create a command that invokes a namespace's main
+
+```
 
 Example:
 
