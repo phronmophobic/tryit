@@ -44,7 +44,7 @@
   ([deps ns exprs]
    (escape-clojure-eval deps
                         (concat [(list 'require (list 'quote ns))
-                                 (list 'ns ns)]
+                                 (list 'in-ns (list 'quote ns))]
                                 exprs)))
   ([deps exprs]
    (escape-clojure-command deps
