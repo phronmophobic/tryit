@@ -54,15 +54,15 @@
 
 (comment
   (println
-   (escape-clojure-command '{com.phronemophobic/tryit {:mvn/version "1.0"}}
+   (escape-clojure-command '{com.phronemophobic/tryit {:mvn/version "1.1"}}
                            ["-M" "-m" "com.phronemophobic.tryit"]))
 
   (println
-   (escape-clojure-main '{com.phronemophobic/tryit {:mvn/version "1.0"}}
+   (escape-clojure-main '{com.phronemophobic/tryit {:mvn/version "1.1"}}
                         'com.phronemophobic.tryit))
 
   (println
-   (escape-clojure-exec '{com.phronemophobic/tryit {:mvn/version "1.0"}}
+   (escape-clojure-exec '{com.phronemophobic/tryit {:mvn/version "1.1"}}
                         'com.phronemophobic.tryit/exec))
 
   (println
@@ -70,7 +70,7 @@
                         'com.phronemophobic.tryit/eval))
 
   (println
-   (escape-clojure-eval '{com.phronemophobic/tryit {:mvn/version "1.0"}}
+   (escape-clojure-eval '{com.phronemophobic/tryit {:mvn/version "1.1"}}
                         'com.phronemophobic.tryit
                         '[(eval)]))
   ,

@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.phronemophobic</groupId>
   <artifactId>tryit</artifactId>
-  <version>1.0</version>
+  <version>1.1</version>
   <name>com.phronemophobic/tryit</name>
   <description>Create cli snippets for quickly trying clojure libraries.</description>
   <url>https://github.com/com.phronemophobic/tryit</url>
@@ -22,7 +22,7 @@
     <url>https://github.com/com.phronemophobic/tryit</url>
     <connection>scm:git:git://github.com/com.phronemophobic/tryit.git</connection>
     <developerConnection>scm:git:ssh://git@github.com/com.phronemophobic/tryit.git</developerConnection>
-    <tag>v1.0</tag>
+    <tag>v1.1</tag>
   </scm>
   <dependencies>
     <dependency>
