@@ -8,4 +8,11 @@
         :exec-args {:jar "tryit.jar" :sync-pom true}}
   :deploy {:replace-deps {slipset/deps-deploy {:mvn/version "0.1.5"}}
            :exec-fn deps-deploy.deps-deploy/deploy
-           :exec-args {:installer :remote :artifact "tryit.jar"}}}}
+           :exec-args {:installer :remote :artifact "tryit.jar"}}
+
+
+  :tryit
+  {:exec-fn com.phronemophobic.tryit/cli
+   :replace-deps {com.phronemophobic/tryit {:local/root "."}}}}
+
+ }
