@@ -8,14 +8,19 @@
 (defn escape-command
   ([args]
    (clojure.string/join " "
-                        (map escape args))
-   ))
+                        (map escape args))))
+
+(defn ->edn [o]
+  (binding [*print-namespace-maps* false
+            *print-length* false]
+    (pr-str o)))
 
 (defn escape-clojure-command
   [deps args]
   (escape-command
-   (into ["clojure" "-Sdeps" (pr-str
-                              {:deps deps})]
+   (into ["clojure" "-Sdeps" (binding [*print-namespace-maps* false]
+                               (->edn
+                                {:deps deps}))]
          args)))
 
 (defn escape-clojure-main
@@ -32,8 +37,8 @@
   (escape-clojure-command deps
                           (into
                            ["-X"
-                            (pr-str f)]
-                           (map pr-str args))))
+                            (->edn f)]
+                           (map ->edn args))))
 
 (defn escape-clojure-eval
   ([deps ns exprs]
@@ -45,16 +50,19 @@
    (escape-clojure-command deps
                            ["-M" "-e"
                             (clojure.string/join
-                             (map pr-str exprs))])))
+                             (map ->edn exprs))])))
 
 (comment
   (println
-   (escape-clojure-command '{com.phronemophobic/tryit {:local/root "."}}
+   (escape-clojure-command '{com.phronemophobic/tryit {:mvn/version "1.0"}}
                            ["-M" "-m" "com.phronemophobic.tryit"]))
 
+  (println
+   (escape-clojure-main '{com.phronemophobic/tryit {:mvn/version "1.0"}}
+                        'com.phronemophobic.tryit))
 
   (println
-   (escape-clojure-exec '{com.phronemophobic/tryit {:local/root "."}}
+   (escape-clojure-exec '{com.phronemophobic/tryit {:mvn/version "1.0"}}
                         'com.phronemophobic.tryit/exec))
 
   (println
@@ -62,10 +70,9 @@
                         'com.phronemophobic.tryit/eval))
 
   (println
-   (escape-clojure-eval '{com.phronemophobic/tryit {:local/root "."}}
+   (escape-clojure-eval '{com.phronemophobic/tryit {:mvn/version "1.0"}}
                         'com.phronemophobic.tryit
-                        '[(println *ns*)
-                          (+ 1 2)]))
+                        '[(eval)]))
   ,
   )
 
