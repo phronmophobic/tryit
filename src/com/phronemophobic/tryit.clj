@@ -110,3 +110,34 @@
     (println (escape-clojure-eval deps ns [form]))))
 
 
+(defn print-help []
+  (println
+   "Tryit: Create cli snippets for quickly trying clojure libraries.
+
+Usage:
+  clojure -X:tryit :type type
+
+:type should be one of eval, exec or main.
+   :type eval - Create a command that evals expressions in a namespace
+   :type exec - Create a command that invokes a function
+   :type main - Create a command that invokes a namespace's main
+"))
+
+(defn cli [opts]
+  (if (not (seq opts))
+    (print-help)
+    (case (:type opts)
+
+      (:eval eval)
+      (eval)
+
+      (:exec exec)
+      (exec)
+
+      (:main main)
+      (-main)
+
+      ;; else
+      (do
+        (println "Invalid :type: " (pr-str (:type opts)))
+        (print-help)))))
