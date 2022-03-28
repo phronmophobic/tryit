@@ -2,6 +2,8 @@
 
 Create cli snippets for quickly trying clojure libraries.
 
+![example usage](/example-usage.gif?raw=true)
+
 ## Try it!
 
 ### Create a command that invokes a function
